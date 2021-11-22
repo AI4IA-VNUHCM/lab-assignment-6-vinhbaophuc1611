@@ -12,12 +12,24 @@ Ex:
 #include <math.h>
 #include <string.h>
 
+int compare(char a[], char b[]){
+	int i = 0, k = 0;
+
+    while(a[i] != '\0' && b[i] != '\0')  {  
+    	if(a[i] > b[i]) return 1; 
+		if(a[i] < b[i]) return -1;
+		i++;
+    }  
+
+}
+
 void Ex2(int n, char *str[]){
-	char temp[100];
+
+	char temp[10];
 
     for (int i = 0; i < n; ++i) {
         for (int j = i + 1; j < n; ++j) {
-            if (strcmp(str[i], str[j]) > 0) {
+			if (compare(str[i], str[j]) > 0) {
                 strcpy(temp, str[i]);
                 strcpy(str[i], str[j]);
                 strcpy(str[j], temp);

@@ -16,41 +16,27 @@ Ex:
 
 void Ex3(char *str){
 	//Your codes here
-	char *c = str;
-	char word[20] = "";
-    char longestWord[20] = "";
-    char shortestWord[20] = "";
-    int wordIndex = 0;
-    for(int intputIndex = 0; intputIndex < strlen(c); intputIndex++)
-    {
-        while(intputIndex < strlen(c) && !isspace(c[intputIndex]) && isalnum(c[intputIndex]))
-        {
-            word[wordIndex++] = c[intputIndex];
+	// int length = strlen(str);
+    int shortest = 100;
+    int longest = 1;
+    int n, m, c = 0;
+    for (int i = 0; i <= strlen(str); ++i){
+        if(str[i] == ' ' || str[i] == '\0'){
+            if(c <shortest){
+                m = i;
+                shortest = c;
+            }
+            else if (c > longest){
+                longest = c;
+                n = i;
+            }
+            c = 0;
         }
-        if(wordIndex != 0)
-        {
-            word[wordIndex] = '\0';
-        }
-        if(strlen(longestWord) == 0)
-        {
-            strcpy(longestWord, word);
-        }
-        if(strlen(shortestWord) == 0)
-        {
-            strcpy(shortestWord, word);
-        }
-        if(strlen(word) > strlen(longestWord))
-        {
-            strcpy(longestWord, word);
-        }
-        if(strlen(word) < strlen(shortestWord))
-        {
-            strcpy(shortestWord, word);
-        }
-        wordIndex = 0;
+        else c ++;
     }
-    printf("Longest word: \'%s\'", longestWord);
-    printf("\nShortest word: \'%s\'", shortestWord);
+
+    printf("Shortest word: "); for (int i = m - shortest; i <= m -1; ++i) printf("%c",str[i]);
+    printf("\nLongest word: "); for (int i = n -longest; i <= n -1; ++i) printf("%c",str[i]);
 }
 
 int main(int argc, char *argv[]) {
