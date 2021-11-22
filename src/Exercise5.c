@@ -18,8 +18,10 @@ Ex:
 void Ex5(char *str){
 	//Your codes here
 	int k = 1;
-	for(int i = 0, j = strlen(str); i < strlen(str)/2 + 1, j >= strlen(str)/2 + 1; ++i, --j){
-		if(str[i] != str[j]){
+	for(int i = 0, j = strlen(str) - 1; i <= strlen(str)/2 + 1, j >= strlen(str)/2; ++i, --j){
+		printf("%d %d\n", i, j);
+		if((str[i] == '{' && str[j] == '}') || (str[i] == '[' && str[j] == ']') || (str[i] == '(' && str[j] == ')')) continue;
+		else{
 			k = 0;
 			break;
 		}
