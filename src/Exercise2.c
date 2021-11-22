@@ -30,9 +30,12 @@ void Ex2(int n, char *str[]){
     for (int i = 0; i < n; ++i) {
         for (int j = i + 1; j < n; ++j) {
 			if (compare(str[i], str[j]) > 0) {
-                strcpy(temp, str[i]);
-                strcpy(str[i], str[j]);
-                strcpy(str[j], temp);
+                // strcpy(temp, str[i]);
+                // strcpy(str[i], str[j]);
+                // strcpy(str[j], temp);
+				temp[i] = str[i];
+				str[i] = str[j];
+				str[j] = temp;
             }
         }
     }
