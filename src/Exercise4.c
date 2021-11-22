@@ -15,9 +15,14 @@ Ex:
 
 void Ex4(char *str){
 	int k = 0;
-	for(int i = 0; i < strlen(str); ++i) {
-		if(str[i] != " "){
-			printf("%s", str[i]); k = 0;
+	for(int i = 0; str[i]; ++i){
+		if(str[i] == ' '){
+			printf("%s", str[i]);
+			k = 0;
+		}
+		if(str[i] != ' '){
+			if(k == 0) printf(" ");
+			k++;
 		}
 	}
 }

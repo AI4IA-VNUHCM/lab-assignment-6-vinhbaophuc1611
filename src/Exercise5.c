@@ -17,7 +17,16 @@ Ex:
 
 void Ex5(char *str){
 	//Your codes here
-	
+	int k = 1;
+	for(int i = 0, j = strlen(str); i < strlen(str)/2 + 1, j >= strlen(str)/2 + 1; ++i, --j){
+		if(str[i] != str[j]){
+			k = 0;
+			break;
+		}
+	}
+
+	if(k == 0) printf("Invalid!");
+	else printf("Valid!");
 }
 
 int main(int argc, char *argv[]) {
