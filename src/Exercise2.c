@@ -33,9 +33,11 @@ void Ex2(int n, char *str[]){
                 // strcpy(temp, str[i]);
                 // strcpy(str[i], str[j]);
                 // strcpy(str[j], temp);
-				temp[i] = str[i];
-				str[i] = str[j];
-				str[j] = temp;
+				char *str1 = str[i], *str2 = str[j];
+				char *temp = str1;
+				str1 = str2;
+				str2 = temp;
+				str[i] = str1; str[j] = str2;
             }
         }
     }
