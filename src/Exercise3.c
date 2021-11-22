@@ -16,6 +16,7 @@ Ex:
 
 void Ex3(char *str){
 	//Your codes here
+	char *c = str;
 	char word[20] = "";
     char longestWord[20] = "";
     char shortestWord[20] = "";
