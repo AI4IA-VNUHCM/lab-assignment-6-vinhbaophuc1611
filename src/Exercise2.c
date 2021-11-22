@@ -12,9 +12,37 @@ Ex:
 #include <math.h>
 #include <string.h>
 
+int compare(char a[], char b[]){
+	int i = 0, k = 0;
+
+    while(a[i] != '\0' && b[i] != '\0')  {  
+    	if(a[i] > b[i]) return 1; 
+		if(a[i] < b[i]) return -1;
+		i++;
+    }  
+
+}
+
 void Ex2(int n, char *str[]){
-	//Your codes here
-	
+
+	char temp[10];
+
+    for (int i = 0; i < n; ++i) {
+        for (int j = i + 1; j < n; ++j) {
+			if (compare(str[i], str[j]) > 0) {
+                // strcpy(temp, str[i]);
+                // strcpy(str[i], str[j]);
+                // strcpy(str[j], temp);
+				char *str1 = str[i], *str2 = str[j];
+				char *temp = str1;
+				str1 = str2;
+				str2 = temp;
+				str[i] = str1; str[j] = str2;
+            }
+        }
+    }
+
+	for(int i = 0; i < n; i++) printf("%s ",str[i]);
 }
 
 int main(int argc, char *argv[]) {
