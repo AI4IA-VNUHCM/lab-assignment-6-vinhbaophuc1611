@@ -20,11 +20,10 @@ void Ex4(char *str){
 			printf("%c", str[i]);
 			k = 0;
 		}
-		else{
+		if(str[i] == ' '){
 			if(k == 0) printf(" ");
 			k++;
 		}
-		printf("%c", str[i]);
 	}
 }
 
